@@ -18,18 +18,21 @@
  <table class="table" style="border:1px solid rgba(0,0,0,0.16);background-color: white; ">
     <thead>
       <tr>
-        <th>Poster</th>
-        <th>Movie Title</th>
-        <th>Year</th>
+        <th style="padding:13px; ">IMDB ID</th>
+        <th style="padding:13px; ">Movie Title</th>
+        <th style="padding:13px; ">Year</th>
+        <th style="padding:13px; ">Poster</th>
       </tr>
     </thead>
     <tbody>
     {% if not Error %}
         {% for name in movie|get_item:'Search'%}
         <tr style="border: 2px;font-family: 'Merriweather'!important;">
-          <td style="padding: 10px!important;"><img src="{{name|get_item:'Poster'}}" style="width: 100px;height: 120px;"></td>
-          <td style="padding: 10px!important;"><a href="{% url 'movie:movie_desc' name|get_item:'Title' %}" >{{name|get_item:'Title'}}</a></td>
-          <td style="padding: 10px!important;">{{name|get_item:'Year'}}</td>
+          <td style="padding: 13px;text-transform: uppercase">{{name|get_item:'imdbID'}}</td>
+         
+          <td style="padding: 13px;"><a href="{% url 'movie:movie_desc' name|get_item:'Title' %}" >{{name|get_item:'Title'}}</a></td>
+          <td style="padding: 13px;">{{name|get_item:'Year'}}</td>
+          <td style="padding: 13px;"><img src="{{name|get_item:'Poster'}}" style="width: 100px;height: 120px;"></td>
           </tr>
         {% endfor %}
     {% else %}
