@@ -1,0 +1,72 @@
+{% extends 'movie/base.html' %}
+{% block title %}Movie View{% endblock %}
+{% block body %}
+    {% load static %}
+ <div class="container" style="box-shadow:0 0px 1px 0 rgba(0,0,0,0.16), 0 0px 5px 0 rgba(0,0,0,0.12);padding: 10px;background-color: white;border-radius: 10px;">
+ 	<div class="row">
+    	<div class="col-sm-12" style="font-size: 25px;padding: 7px;font-family:'Playfair';"><center>Movie Description</center></div>
+    </div>
+ </div>  
+ 
+  <div class="container" style="box-shadow:0 1px 2px 0 rgba(0,0,0,0.16), 0 1px 2px 0 rgba(0,0,0,0.12);padding: 45px;background-color: white;margin-top:10px; border-radius: 10px;">
+    <!-- Control the column width, and how they should appear on different devices -->
+      <div class="row">
+  {% if not Error %}
+      <div class="col-sm-3 mob" style="position: relative;min-height: 200px;
+  z-index: 1;padding: 10px;"><img src="{{ movie|get_item:'Poster' }}" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: -1;"></div>
+       
+      <div class="col-sm-9">
+		{% for name in first %}  
+		<div class="row row-adj">
+      		<div class="col-sm-3 title">{{name}}</div>
+      		<div class="col-sm-9 title-value">{{movie|get_item:name}}</div>
+		  </div>
+		{% endfor %}
+      </div>
+      <br>
+      <br>
+      <div class="col-sm-12" >
+      	<br>
+		  {% for name in second %}
+		  <div class="row row-adj">
+      		<div class="col-sm-3 title">{{name}}</div>
+      		<div class="col-sm-9 title-value">{{movie|get_item:name}}</div>
+		  </div>
+		  {% endfor %}
+      </div>
+
+
+    </div>
+    <br>
+    
+    <div class="row">
+      <div class="col-sm-12"> 
+      	<table class="table table-bordered ts">
+    <thead>
+      <tr>
+        <th>Rating</th>
+        <th>Company</th>
+   
+      </tr>
+    </thead>
+    <tbody>
+		{% for name in ratings %}
+      <tr>
+       {% for n,m in name.items %}
+        <td>{{m}}</td>
+        {% endfor %}
+	  </tr>
+	  {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+  {% else %}
+    <div class="alert alert-danger alert-dismissible fade show" style="width: 100%;">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <center><strong>{{search}} </strong>is not a valid movie name&nbsp;<strong>!</strong></center> 
+    </div>
+  {% endif %}   
+</div>
+</div>
+{% endblock %}

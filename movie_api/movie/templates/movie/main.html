@@ -1,0 +1,46 @@
+
+{% extends 'movie/base.html' %}
+{% block title %}Movie Search{% endblock %}
+{% block body %}
+    {% load static %}
+<div class="container">
+{% if index %}
+<center>
+  <p>
+  <span class="glyphicon" style="font-size: 25px;">&#xe093;</span>
+  </p>
+</center>
+<br> 
+<center><h2>Search Any Movie From Movie Search</h2></center>
+{% else %}
+  <center><h3 style="font-family: 'Merriweather';">Search Result for : {{search}}</h3></center>
+  <br>
+ <table class="table" style="border:1px solid rgba(0,0,0,0.16);background-color: white; ">
+    <thead>
+      <tr>
+        <th>Poster</th>
+        <th>Movie Title</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if not Error %}
+        {% for name in movie|get_item:'Search'%}
+        <tr style="border: 2px;font-family: 'Merriweather'!important;">
+          <td style="padding: 10px!important;"><img src="{{name|get_item:'Poster'}}" style="width: 100px;height: 120px;"></td>
+          <td style="padding: 10px!important;"><a href="{% url 'movie:movie_desc' name|get_item:'Title' %}" >{{name|get_item:'Title'}}</a></td>
+          <td style="padding: 10px!important;">{{name|get_item:'Year'}}</td>
+          </tr>
+        {% endfor %}
+    {% else %}
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <center><strong>{{search}} </strong>is not a valid movie name&nbsp;<strong>!</strong></center> 
+    </div>
+    {% endif %}    
+  </tbody>
+  </table
+  >
+{% endif %}
+</div>
+{% endblock %}
