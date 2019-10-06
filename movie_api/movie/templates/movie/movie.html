@@ -12,7 +12,7 @@
     <!-- Control the column width, and how they should appear on different devices -->
       <div class="row">
   {% if not Error %}
-      <div class="col-sm-3 mob" style="position: relative;min-height: 200px;
+      <div class="col-sm-3 mob" style="position: relative;min-height: 250px;
   z-index: 1;padding: 10px;"><img src="{{ movie|get_item:'Poster' }}" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: -1;"></div>
        
       <div class="col-sm-9">
@@ -62,7 +62,7 @@
 </div>
 </div>
   {% else %}
-    <div class="alert alert-danger alert-dismissible fade show" style="width: 100%;">
+    <div class="alert alert-danger" style="width: 100%;">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <center><strong>{{search}} </strong>is not a valid movie name&nbsp;<strong>!</strong></center> 
     </div>

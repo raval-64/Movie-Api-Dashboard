@@ -12,7 +12,6 @@ def search(request):
     params = {'s': m}
     r = requests.get(url, params=params)
     movie = r.json()
-    print(movie)
     if 'Error' in movie:
         sender = {'Error': True, 'search': m}
     else:
@@ -24,6 +23,7 @@ def getmovie(request, movie_name):
     params = {'t':movie_name}
     r = requests.get(url, params=params)
     movie = r.json()
+
     if 'Error' in movie:
         sender = {'Error': True, 'search': movie_name}
     else:
@@ -32,7 +32,6 @@ def getmovie(request, movie_name):
             ratings = movie['Ratings']
         except Exception:
             ratings = []
-        print(movie_name)
         second = ['Plot','Language', 'Country', 'Released', 'BoxOffice', 'Production',  'Writer','Response',
          'Rated', 'DVD','Type', 'imdbID','imdbVotes', 'imdbRating', 'Metascore', 'Awards', 'Website']
         sender = {'movie': movie,'first':first,'second':second,'ratings':ratings}
