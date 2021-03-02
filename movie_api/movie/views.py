@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-from movie_api.movie_api.settings import API_KEY
+from movie_api.settings import API_KEY
 
 # Create your views here.
 

@@ -1,5 +1,5 @@
 .myenv
 .venv
-
+*.pyc
 movie_api/.venv
 movie_api/.env
