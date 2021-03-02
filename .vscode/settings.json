@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/anon/Desktop/django_project/myenv/bin/python3",
+    "python.pythonPath": "movie_api/.venv/bin/python",
     "git.ignoreLimitWarning": true
 }

@@ -1,15 +1,16 @@
 from django.shortcuts import render
-from django.shortcuts import render, get_object_or_404, redirect,HttpResponse
 import requests
+from movie_api.movie_api.settings import API_KEY
 
 # Create your views here.
+
 def index(request):
     sender = {'index':True}
     return render(request, 'movie/main.html', sender)
 
 def search(request):
     m = request.GET.get('q')
-    url = 'http://www.omdbapi.com/?apikey=f8f4f680'
+    url = 'http://www.omdbapi.com/?apikey='+ API_KEY
     params = {'s': m}
     r = requests.get(url, params=params)
     movie = r.json()
@@ -20,7 +21,7 @@ def search(request):
     return render(request, 'movie/main.html', sender)
 
 def getmovie(request, movie_name):
-    url = 'http://www.omdbapi.com/?apikey=f8f4f680' 
+    url = 'http://www.omdbapi.com/?apikey='+ API_KEY
     params = {'t':movie_name}
     r = requests.get(url, params=params)
     movie = r.json()
