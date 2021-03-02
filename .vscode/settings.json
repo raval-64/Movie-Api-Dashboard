@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/anon/Desktop/django_project/myenv/bin/python3"
+    "python.pythonPath": "/home/anon/Desktop/django_project/myenv/bin/python3",
+    "git.ignoreLimitWarning": true
 }
