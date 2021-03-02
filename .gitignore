@@ -1,0 +1,5 @@
+.myenv
+.venv
+
+movie_api/.venv
+movie_api/.env
