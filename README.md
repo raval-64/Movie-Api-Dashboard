@@ -1,4 +1,4 @@
-# Movie-Api-Dashboard
+# Movie-Dashboard
 With this application, you can find the details of any film. TMDB API is used for this application.
 ### Setup Project
 
